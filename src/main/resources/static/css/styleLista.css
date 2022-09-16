@@ -1,0 +1,44 @@
+* { padding: 0; margin: 0; }
+
+body {
+	background: #FFFFFF;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+
+th:first-child, td:first-child {
+    width: 5%;
+    text-align:  justify;
+}
+
+.footer {
+	box-sizing: border-box;
+    clear: both;
+	width: 100%;
+	padding: 8.5px 15px;
+	background: #F5F5F5;
+    text-align: end;
+}
+
+.footer-texto {
+    font-size: 19px;
+    color: #5E5E5E;
+}
+
+
+
+
+/*
+ * Content
+ */
+.layout-content {
+    width: 100%;
+    padding-top: 0px;
+}
+
+.container {
+	width: 100%;
+	padding-top: 20px;
+}
+
+

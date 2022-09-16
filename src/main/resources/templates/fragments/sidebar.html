@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout ({::main})">
+<head><meta charset="UTF-8"></head>
+     <nav class="nav" th:fragment= "nav-sidebar">
+            <ul>
+                <a class="nav-botao" href="/">
+                    <img class="nav-icon" 
+                       src="/image/icon-nav/icon-home.png">
+                    <span class="nav-texto">Home</span>
+                </a>
+                
+                <a class="nav-botao" href="/lead/listar">
+                    <img class="nav-icon" 
+                        src="/image/icon-nav/icon-leads.png" 
+                        alt="icon lead's">
+                    <span class="nav-texto">+Lead's</span>
+                </a>
+				<a class="nav-botao" href="/lead/listar">
+                    <img class="nav-icon" 
+                        src="/image/icon-nav/icon-leads.png" 
+                        alt="icon lead's">
+                    <span class="nav-texto">+Imóveis</span>
+                </a>
+                <a class="nav-botao" href="#">
+                    <img class="nav-icon" 
+                        src="/image/icon-nav/icon-simulador.png" 
+                        alt="icon simulador">
+                    <span class="nav-texto">Simulador</span>
+                </a>
+                
+                <a class="nav-botao" href="#">
+                    <img class="nav-icon" 
+                        src="/image/icon-nav/icon-consultar.png" 
+                        alt="icon consultar">
+                    <span class="nav-texto">Consultar</span>
+                </a>
+                
+                <a class="nav-botao" href="#">
+                    <img class="nav-icon" 
+                        src="/image/icon-nav/icon-resumo.png" 
+                        alt="icon resumo">
+                    <span class="nav-texto">Resumo</span>
+                </a>
+                 <a class="nav-botao" href="/usuario/logar">
+                    <img class="nav-icon" 
+                        src="/image/icon-nav/icon-resumo.png" 
+                        alt="icon resumo">
+                    <span class="nav-texto">Login</span>
+                </a>
+            </ul>
+  </nav>
+

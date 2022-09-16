@@ -1,0 +1,170 @@
+<html th:replace="~{layout :: layout (~{::main})}"
+	xmlns:th="http://www.w3.org/1999/xhtml">
+<head>	<meta charset="UTF-8" /></head>
+<body>
+	<main class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>New Lead Registration</h3>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div th:replace="fragments/alert"></div>
+			<div class="col-sm-12">
+				<form th:action="${lead.id == null} ?  @{/lead/salvar} : @{/lead/editar}" th:object="${lead}" method="POST">
+                    <hr class="linha3">
+ 					<div class="row">
+						<div class="col-sm">
+						<label for="nome" class="form-label">*Nome Comprador</label>
+						 <input	 type="text" class="form-control"  placeholder="Nome" autofocus="autofocus" id="nmLead" th:field="*{nmLead}"/>
+					</div>
+						<div class="col-sm">
+						<label class="form-label" for="vfgts">*Contato</label>
+						<input class="form-control" type="text" placeholder="(99)99999-9999" id="celLead" max="11" th:field="*{celLead}"/>
+					</div>
+					<div class="col-sm">
+						<label class="form-label" for="vfgts">Data Nascimento</label> 
+						<input	class="form-control" type="date"  id="dtNasc"  th:field="*{dtNasc}"/>
+					</div>
+					
+					</div>
+					<hr class="linha3">
+					<div class="row">
+						<div class="cal-sm-12">
+							<legend class="legend">Customer Origin</legend>
+						</div>
+					</div>
+					
+<!--  					<div class="mb-3">
+						<input class="checkbox" type="checkbox" name="chncont"
+							id="chncont"> <label class="checkbox-info" for="chncont" th:field="*{indCorretor}">Se
+							o Lead nÃ£o foi de origem de seus contatos, marque esta opÃ§Ã£o!</label>
+					</div>
+-->			
+					<div class="col-sm">
+						<div class="form-check">
+							<label  class="checkbox-inline" for="chcpf">
+								<input type="checkbox" class="form-check-input"  id="chcpf"  th:checked="*{escrituraImovel}">
+								Possue escritura de	imÃ³vel registrado no C.P.F. nesta cidade!
+							</label>
+						</div>
+					</div>
+					<br></br>
+					<div class="row">
+						<div class="col-sm">
+						<label class="form-label" for="">Indicado por:</label>
+						 <input	class="form-control" type="text" placeholder="Corretor" autofocus="autofocus" id="nmCorretor" th:field="*{nmCorretor}" />
+					</div>
+
+					<div class="col-sm">
+						<label class="form-label" for="">Contato Corretor:</label>
+						 <input	class="form-control" type="text" placeholder="(99)99999-9999"  autofocus="autofocus" id="celCorretor" th:field="*{celCorretor}" />
+					</div>
+					<div class="col-sm">
+						<label class="form-label" for="vfgts">Quando</label> 
+						<input	class="form-control" type="date"  id="dtNasc"  th:field="*{dtIndicacao}"/>
+					</div>
+
+		</div>
+					<hr class="linha4">
+					<div class="row">
+						<div class="cal-sm-12">
+							<legend class="legend">Income and Own Resources</legend>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm">
+							<label class="form-label"for="op-renda">Origem da Renda</label> 
+							<input class="form-control" list="origem-renda" name="op-renda"
+								id="op-renda" th:field="*{origRenda}">
+						
+						
+							<datalist id="origem-renda">
+								<option value="AutÃ´nomo">
+								<option value="Carteira Assinada">
+								<option value="Servidor PÃºblico">
+								<option value="Profissional Liberal">
+							</datalist>
+						</div>
+						<div class="col-sm">
+							<label class="form-label" for="vrenda">Renda Bruta</label>
+							 <input	class="form-control" type="number" name="vrenda" id="vrenda" value="0"	data-mask="#,##0,.00" data-mask-reverse="true" th:field="*{rendaAtual}">
+						</div>
+												
+						<div class="col-sm">
+							<label class="form-label" for="vfgts">Saldo FGTS Atual</label>
+							 <input	class="form-control" type="number" name="vfgts" id="vfgts" data-mask="#,##0,.00" data-mask-reverse="true"  th:field="*{fgts}">
+						</div>
+						
+						<div class="col-sm">
+							<label class="form-label" for="vsinal">Sinal/Ato</label>
+							 <input	class="form-control" type="number" name="vsinal" id="vsinal" data-mask="#,##0,.00" data-mask-reverse="true"  th:field="*{sinal}">
+						</div>
+					</div>
+					<hr class="linha5">
+					<legend class="legend">Customer Profile</legend>
+					<div class="row">
+						<div class="col-sm">
+							<input type="checkbox" class="form-check-input" name="chirpf" id="chirpf" th:checked="*{impRenda}">
+							<label  class="checkbox-inline" for="chirpf">DeclaraÃ§Ã£o de Imposto de Renda em dia!</label>
+						</div>
+						<div class="col-sm">
+						 	<input type="checkbox" class="form-check-input	" name="chpgf" id="chpgf" th:checked="*{finAberto}">
+						 	 <label	class="checkbox-inline" for="chpgf">EstÃ¡ pagando
+							financiamento VeÃ­culo, Emprestimo, ImÃ³veis...!</label>
+						</div>
+					</div>
+					<br></br>
+					<div class=" form-group row">
+						<div class="col-sm">
+		
+							<label class="form-label" for="op-tipo">Tipo de ImÃ³vel</label>
+							<select id="tipo-imovel" class="form-control" th:field="*{tpImovel}" >
+								<option value="">Selecione...</option>
+								<option value="Casa">Casa</option>
+								<option value="Apartamento">Apartamento</option>
+								<option value="Terra">Terra</option>
+							</select>
+						</div>
+					<div class="col-sm">
+						 	<label class="form-label" for="sit-imovel">Situação Imóvel</label>
+							<select id="sit-imovel" class="form-control" th:field="*{situacaoImovel}">
+								<option value="">Selecione...</option>
+								<option value="Pronto">Pronto</option>
+								<option value="Na Planta">Na Planta</option>
+								<option value="Em construÃ§Ã£o">Em construção</option>
+							</select>
+					</div>
+ 					<div class="col-sm">
+						<label class="form-label" for="cidade">Cidade indicada</label>
+						<input tupw="text" id="cidade" class="form-control"  th:field="*{endereco.cidade}"/>
+						
+					</div>
+					<div class="col-sm">
+						<label class="form-label" for="Bairro">Bairro</label>
+						<input tupw="text" id="bairro" class="form-control"  th:field="*{endereco.bairro}"/>
+						
+
+					<div class="col-xs-3">
+						<label class="form-label" for="uf">Estado/UF</label>
+						<select id="uf" class="form-control" th:field="*{endereco.uf}">
+								<option value=""> Selecione...</option>
+						 		<option th:each="uf : ${ufs}"  th:value="${uf}" th:text="${uf.sigla + ' - ' +  uf.descricao} " ></option>
+						</select>
+					</div>
+				
+				</div>
+				<hr class="linha5">
+				<input type="hidden" id="id" th:field="*{id}"/>
+				<button class="btn btn-primary btn-lg btn-block" type="submit" >Salvar</button>
+				<hr class="linha5">
+			</form>
+		</div>
+		</div>
+	</main>
+
+
+</body>
+</html>
