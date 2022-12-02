@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.qualifylead.lead.dao.UsuarioDao;
+import br.com.qualifylead.lead.EntityDao.UsuarioDao;
 import br.com.qualifylead.lead.domain.TbUsuario;
 
 

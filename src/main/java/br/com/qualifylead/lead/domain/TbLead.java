@@ -19,16 +19,15 @@ public class TbLead  extends AbstractEntity<Long> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@ManyToOne
 	@JoinColumn(name="id_usuario_fk")
 	private TbUsuario usuario;
 	
-
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco_id_fk")
 	public TbEndereco endereco;
-	
-	
+		
 	@Column(nullable =  false,  length= 60)
 	private String nmLead;
 	

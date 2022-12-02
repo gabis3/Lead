@@ -6,12 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.qualifylead.lead.EntityDao.LeadDao;
 import br.com.qualifylead.lead.Util.PaginacaoUtil;
-import br.com.qualifylead.lead.dao.LeadDao;
 import br.com.qualifylead.lead.domain.TbLead;
-
-
-
 
 @Service @Transactional(readOnly= false)
 public class LeadServiceImpl  implements LeadService {
@@ -24,10 +21,7 @@ public class LeadServiceImpl  implements LeadService {
 	@Override
 	public void salvar(TbLead lead) {
 		lead.setStatusLead("Cadastro Ativo");
-		
-
 		dao.save(lead);
-		
 	}
 
 	@Override

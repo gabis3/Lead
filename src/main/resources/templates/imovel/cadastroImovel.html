@@ -1,0 +1,155 @@
+<html th:replace="~{layout :: layout (~{::main})}"
+	xmlns:th="http://www.w3.org/1999/xhtml">
+<head>	<meta charset="UTF-8" /></head>
+<body>
+	<main class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>Novo Registro de Imóvel</h3>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div th:replace="fragments/alert"></div>
+			<div class="col-sm-12">
+				<form th:action="${imovel.id == null} ?  @{/imovel/salvar} : @{/imovel/editar}" th:object="${imovel}" method="POST">
+                    <hr class="linha3">
+ 					<div class="row">
+						<div class="col-sm">
+							<label for="nome" class="form-label">*Nome Proprietário</label>
+							 <input	 type="text" class="form-control"  placeholder="Nome" autofocus="autofocus" id="nmProprietarioImovel" th:field="*{nmProprietarioImovel}"/>
+						</div>
+						<div class="col-sm">
+							<label class="form-label" for="vfgts">*Contato</label>
+							<input class="form-control" type="text" placeholder="(99)99999-9999" id="celImovel" max="11" th:field="*{celProprietario}"/>
+						</div>
+						<div class="col-sm">
+							<label class="form-label" for="op-tipo">*Tipo de Imóvel</label>
+							<select id="tipo-imovel" class="form-control" th:field="*{tpImovel}" >
+								<option value="">Selecione...</option>
+								<option value="Casa Condominio">Casa Condominio</option>
+								<option value="Casa Duplex">Casa Duplex</option>								
+								<option value="Casa Terrea">Casa Terrea</option>
+								<option value="Apartamento">Apartamento</option>
+								<option value="Terra">Loteamento</option>
+							</select>
+						</div>
+
+					</div>
+					<hr class="linha3">
+					<div class="row">
+						<div class="cal-sm-12">
+							<legend class="legend">Condição Financeira do Imóvel</legend>
+						</div>
+					</div>
+ 					<div class="row">
+						<div class="col-sm">
+							<label for="nome" class="form-label">Valor da Oferta</label>
+							 <input	 type="text" id="vrImovelOfertado" class="form-control" data-mask="#.##0,00"
+							  th:field="*{vrImovelOfertado}" />
+
+						</div>
+					
+						<div class="col-sm">
+							<label class="form-label" for="vfgts">Comissão(%) corretagem</label>
+							<input  type="text" class="form-control"  placeholder="6.00" id="comissaoOfertada" onkeypress="$(this).mask('99,99 %')" th:field="*{comissaoOfertada}"/>
+						</div>
+						<div class="col-sm">
+							<label class="form-label" for="op-tipo">Comissão inclusa na oferta?</label>
+							<select id="flegComissao" class="form-control" th:field="*{flegComissao}" >
+								<option value="">Selecione...</option>
+								<option value="Sim">SIM</option>
+								<option value="Não">NÃO</option>									
+							</select>
+						</div>
+		
+					</div>
+ <!--					                              <p th:text="${#numbers.formatCurrency(111)}"></p>
+					                              <p th:text="${#numbers.formatCurrency(param.amount)}"></p>
+  <strong th:text="${imovel.vrImovelOfertado}"></strong>-->
+					<hr class="linha3">
+					<div class="row">
+						<div class="cal-sm-12">
+							<legend class="legend">Indicação Imóvel</legend>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm">
+							<label class="form-label" for="">Indicado por:</label>
+							 <input	class="form-control" type="text" placeholder="Corretor" autofocus="autofocus" id="nmCorretor" th:field="*{nmCorretor}" />
+						</div>
+
+						<div class="col-sm">
+							<label class="form-label" for="">Contato Corretor:</label>
+							 <input	class="form-control" type="text" placeholder="(99)99999-9999"  autofocus="autofocus" id="celCorretor" th:field="*{celCorretor}" />
+						</div>
+						<div class="col-sm">
+							<label class="form-label" for="vfgts">Quando</label> 
+							<input	class="form-control" type="date"  id="dtNasc"  th:field="*{dtIndicacaoImovel}"/>
+						</div>
+
+					</div>
+					<hr class="linha4">
+					<div class="row">
+						<div class="cal-sm-12">
+							<legend class="legend">Detalhe Imovel</legend>
+						</div>
+					</div>
+
+					<div class="row">
+	
+						<div class="col-sm">
+							 	<label class="form-label" for="sit-imovel">Situação Imóvel</label>
+								<select id="sit-imovel" class="form-control" th:field="*{situacaoImovel}">
+									<option value="">Selecione...</option>
+									<option value="Pronto">Pronto</option>
+									<option value="Na Planta">Na Planta</option>
+									<option value="Em construÃ§Ã£o">Em construção</option>
+								</select>
+						</div>
+			
+		 				<div class="col-sm">
+								<label class="form-label" for="cidade">Cidade indicada</label>
+								<input type="text" id="cidade" class="form-control"  th:field="*{endereco.cidade}"/>
+								
+						</div>
+						<div class="col-sm">
+										<label class="form-label" for="Bairro">Bairro</label>
+										<input type="text" id="bairro" class="form-control"  th:field="*{endereco.bairro}"/>
+										
+						</div>
+						<div class="col-sm">
+									<div class="col-xs-3">
+										<label class="form-label" for="uf">Estado/UF</label>
+										<select id="uf" class="form-control" th:field="*{endereco.uf}">
+												<option value=""> Selecione...</option>
+										 		<option th:each="uf : ${ufs}"  th:value="${uf}" th:text="${uf.sigla + ' - ' +  uf.descricao} " ></option>
+										</select>
+									</div>
+							
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-sm">
+							 	<label class="form-label" for="sit-imovel">Descrição Imóvel</label>
+								<input type="text" id="bairro" class="form-control"  th:field="*{dsImovel}"/>
+						</div>
+					</div>
+					<br></br>					
+						<div class=" form-group row">	
+					<hr class="linha5">
+					<input type="hidden" id="id" th:field="*{id}"/>
+					<button class="btn btn-primary btn-lg btn-block" type="submit" >Salvar</button>
+					<hr class="linha5">
+				</div>
+			</form>
+		</div>
+		</div>
+
+	</main>
+
+</body>
+
+</html>

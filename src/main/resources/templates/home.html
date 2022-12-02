@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html th:replace="~{layout :: layout (~{::main})}" xmlns:th="http://www.w3.org/1999/xhtml">
-
+	<head>
+		<meta charset="UTF-8" />
+		 <link rel="icon" type="image/x-icon" href="/image/favicon.ico">
+	</head>
 	<body>
-		<main class="layout-content" layout:frangment="corpo">
-			<header class="header-principal">
+		<main class="layout-content" >
+		
 				<h1 class="h1">
 				<img class="grafico2" src="/image/grafico-animado-main.gif" alt="GIF de um gráfico ">
 				<span  class="titulo-principal">Bem Vindo</span>
 				</h1>
 				<h2 class="sub-titulo">Aplicativo de qualficação de Lead's, Simulação Financeira e Avaliações comportamentais !</h2>
-			</header>
-			
-<!--			<div class="login">
-				<form action="/usuario/logar">
-					 <a  href="@{/usuario/logar}" >
-					    <Button class="botao-login" type="submit" value="Logar">Logar</Button> 
-					 </a>
-				</form>
-			</div>
--->
 		</main>
+		 <main class="principal">
+
+
+           <div class="login">
+           
+                <form action="/index"  method="POST" >
+               
+                    <label  for="usua" class="usuario">Nome do usuário</label> <br>
+                    <input  class="campo-usuario"  name="nmUsuario" type="email"   placeholder="Email..." required="required"> <br>
+                    
+                    <label for="senh" class="senha">Senha</label> <br>
+                    <input class="campo-senha" type="password" id="senh" name="senha"required> <br>
+                    
+                    <a >
+                        <Button class="botao-login" type="submit" value="Logar">Logar </Button> 
+                    </a>
+                
+                    <input class="checkbox" type="checkbox" name="gravar" id="gravar" onclick="alert('Que bom que voltou, Xiome!')">
+                    <label for="gravar" class="lembre-me">Lembre-me</label> <br>
+                    <hr class="linha">
+                    <a href="" class="esq-senha">Esqueceu sua senha?</a>
+                    <a href="" class="link2">Usar dominio personalizado</a>
+                </form>
+            </div>
+	                    
+
+	                
+	</main>
+
+     
 	</body>
 </html>

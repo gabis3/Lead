@@ -34,7 +34,7 @@ public class LeadController {
 	    }
 	 
 	@GetMapping("/listar")
-	public String listaroLead(ModelMap model, @RequestParam("page") Optional<Integer> page,  @RequestParam("dir") Optional<String> dir) {
+	public String listarLead(ModelMap model, @RequestParam("page") Optional<Integer> page,  @RequestParam("dir") Optional<String> dir) {
 		
 		int paginaAtual = page.orElse(1);
 		String ordem = dir.orElse("asc");
@@ -44,6 +44,18 @@ public class LeadController {
 		model.addAttribute("pageLead", pageLead);
 		return "/lead/listaLead";
 	}
+	
+//	@GetMapping("/listarimoveis")
+//	public String listarImovel(ModelMap model, @RequestParam("page") Optional<Integer> page,  @RequestParam("dir") Optional<String> dir) {
+//		
+//		int paginaAtual = page.orElse(1);
+//		String ordem = dir.orElse("asc");
+//		
+//		PaginacaoUtil<TbLead> pageLead = service.buscaPorPagina(paginaAtual, ordem);
+//		
+//		model.addAttribute("pageLead", pageLead);
+//		return "/lead/listarImoveis";
+//	}
 	
 	@PostMapping("/salvar")
 	public String salvar(TbLead lead, RedirectAttributes attr) {
