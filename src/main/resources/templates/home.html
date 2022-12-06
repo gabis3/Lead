@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html th:replace="~{layout :: layout (~{::main})}" xmlns:th="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta charset="UTF-8" />
-		 <link rel="icon" type="image/x-icon" href="/image/favicon.ico">
-	</head>
+<html  xmlns:th="http://www.w3.org/1999/xhtml">
+	<meta charset="UTF-8" />
+	<head th:replace="~{layout :: layout (~{::main})}">	</head>
 	<body>
 		<main class="layout-content" >
 		
@@ -13,15 +11,15 @@
 				</h1>
 				<h2 class="sub-titulo">Aplicativo de qualficação de Lead's, Simulação Financeira e Avaliações comportamentais !</h2>
 		</main>
-		 <main class="principal">
+ <!--		 <main class="principal">
 
 
            <div class="login">
            
-                <form action="/index"  method="POST" >
+                <form action="/home"  method="POST" >
                
                     <label  for="usua" class="usuario">Nome do usuário</label> <br>
-                    <input  class="campo-usuario"  name="nmUsuario" type="email"   placeholder="Email..." required="required"> <br>
+                    <input  class="campo-usuario"  name="nmUsuario" type="text"   placeholder="Email..." required="required"> <br>
                     
                     <label for="senh" class="senha">Senha</label> <br>
                     <input class="campo-senha" type="password" id="senh" name="senha"required> <br>
@@ -36,12 +34,10 @@
                     <a href="" class="esq-senha">Esqueceu sua senha?</a>
                     <a href="" class="link2">Usar dominio personalizado</a>
                 </form>
-            </div>
-	                    
-
-	                
+                 <body>
+    </body>	                
 	</main>
 
-     
+    --> 
 	</body>
 </html>

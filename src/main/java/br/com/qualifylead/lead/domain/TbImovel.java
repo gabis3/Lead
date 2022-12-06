@@ -1,12 +1,8 @@
 package br.com.qualifylead.lead.domain;
 
 
-
-import java.math.BigDecimal;
 import java.time.LocalDate;
-
 import javax.persistence.*;
-
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.format.annotation.NumberFormat;
