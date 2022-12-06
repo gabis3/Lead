@@ -20,9 +20,9 @@ public class TbLead  extends AbstractEntity<Long> {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name="id_usuario_fk")
-	private TbUsuario usuario;
+//	@ManyToOne
+//	@JoinColumn(name="id_usuario_fk")
+//	private TbUsuario usuario;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco_id_fk")
@@ -99,13 +99,13 @@ public class TbLead  extends AbstractEntity<Long> {
 	}
 
 	
-	public TbUsuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(TbUsuario usuario) {
-		this.usuario = usuario;
-	}
+//	public TbUsuario getUsuario() {
+//		return usuario;
+//	}
+//
+//	public void setUsuario(TbUsuario usuario) {
+//		this.usuario = usuario;
+//	}
 
 	public String getNmLead() {
 		return nmLead;

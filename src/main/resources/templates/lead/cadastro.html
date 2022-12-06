@@ -1,6 +1,8 @@
-<html 	xmlns:th="http://www.w3.org/1999/xhtml">
+<html th:replace="~{layout :: layout (~{::main})}"	xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head >
 <meta charset="UTF-8" />
-<head th:replace="~{layout :: layout (~{::main})}"></head>
+</head>
 <body>
 	<main class="container">
 		<div class="row">
@@ -113,7 +115,7 @@
 						<div class="col-sm">
 						 	<input type="checkbox" class="form-check-input	" name="chpgf" id="chpgf" th:checked="*{finAberto}">
 						 	 <label	class="checkbox-inline" for="chpgf">EstÃ¡ pagando
-							financiamento VeÃ­culo, Emprestimo, ImÃ³veis...!</label>
+							financiamento Veículo, Emprestimo, Imóveis...!</label>
 						</div>
 					</div>
 					<br></br>
@@ -139,12 +141,12 @@
 					</div>
  					<div class="col-sm">
 						<label class="form-label" for="cidade">Cidade indicada</label>
-						<input tupw="text" id="cidade" class="form-control"  th:field="*{endereco.cidade}"/>
+						<input type="text" id="cidade" class="form-control"  th:field="*{endereco.cidade}"/>
 						
 					</div>
 					<div class="col-sm">
 						<label class="form-label" for="Bairro">Bairro</label>
-						<input tupw="text" id="bairro" class="form-control"  th:field="*{endereco.bairro}"/>
+						<input type="text" id="bairro" class="form-control"  th:field="*{endereco.bairro}"/>
 						
 
 					<div class="col-xs-3">

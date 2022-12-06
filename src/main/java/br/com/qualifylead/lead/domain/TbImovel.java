@@ -26,9 +26,9 @@ public class TbImovel  extends AbstractEntity<Long> {
 	@Column(name="nm_proprietario")
 	public String nmProprietarioImovel;
 	
-	@ManyToOne
-	@JoinColumn(name="id_usuario_fk")
-	private TbUsuario usuario;
+//	@ManyToOne
+//	@JoinColumn(name="id_usuario_fk")
+//	private TbUsuario usuario;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco_id_fk")
@@ -96,13 +96,13 @@ public class TbImovel  extends AbstractEntity<Long> {
 		this.nmProprietarioImovel = nmProprietarioImovel;
 	}
 
-	public TbUsuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(TbUsuario usuario) {
-		this.usuario = usuario;
-	}
+//	public TbUsuario getUsuario() {
+//		return usuario;
+//	}
+//
+//	public void setUsuario(TbUsuario usuario) {
+//		this.usuario = usuario;
+//	}
 
 	public TbEndereco getEndereco() {
 		return endereco;
