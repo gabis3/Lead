@@ -18,15 +18,15 @@
  					<div class="row">
 						<div class="col-sm">
 							<label for="nome" class="form-label">*Nome Proprietário</label>
-							 <input	 type="text" class="form-control"  placeholder="Nome" autofocus="autofocus" id="nmProprietarioImovel" th:field="*{nmProprietarioImovel}"/>
+							 <input	 type="text" class="form-control"  placeholder="Nome"  required autofocus id="nmProprietarioImovel" th:field="*{nmProprietarioImovel}"/>
 						</div>
 						<div class="col-sm">
 							<label class="form-label" for="vfgts">*Contato</label>
-							<input class="form-control" type="text" placeholder="(99)99999-9999" id="celImovel" max="11" th:field="*{celProprietario}"/>
+							<input class="form-control" type="text" placeholder="(99)99999-9999"  required autofocus id="celImovel" maxlength="11" size="11" th:field="*{celProprietario}"/>
 						</div>
 						<div class="col-sm">
 							<label class="form-label" for="op-tipo">*Tipo de Imóvel</label>
-							<select id="tipo-imovel" class="form-control" th:field="*{tpImovel}" >
+							<select id="tipo-imovel" class="form-control" th:field="*{tpImovel}"  required autofocus >
 								<option value="">Selecione...</option>
 								<option value="Casa Condominio">Casa Condominio</option>
 								<option value="Casa Duplex">Casa Duplex</option>								

@@ -1,5 +1,6 @@
 package br.com.qualifylead.lead.web.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class LeadController {
 	    public ModelAndView cadastroLead() {
 	        ModelAndView modelAndView = new ModelAndView("lead/cadastro");
 	        modelAndView.addObject("lead", new TbLead());
+
 	        return modelAndView;
 	    }
 	 
@@ -45,22 +47,18 @@ public class LeadController {
 		return "/lead/listaLead";
 	}
 	
-//	@GetMapping("/listarimoveis")
-//	public String listarImovel(ModelMap model, @RequestParam("page") Optional<Integer> page,  @RequestParam("dir") Optional<String> dir) {
-//		
-//		int paginaAtual = page.orElse(1);
-//		String ordem = dir.orElse("asc");
-//		
-//		PaginacaoUtil<TbLead> pageLead = service.buscaPorPagina(paginaAtual, ordem);
-//		
-//		model.addAttribute("pageLead", pageLead);
-//		return "/lead/listarImoveis";
-//	}
-	
 	@PostMapping("/salvar")
 	public String salvar(TbLead lead, RedirectAttributes attr) {
-		service.salvar(lead);
-		attr.addFlashAttribute("success", "Lead inserido com sucesso.");
+		String contato = lead.getCelLead();
+		List<TbLead> ret = service.buscarPorContato(contato);
+		if (ret.size() != 0) {
+			attr.addFlashAttribute("fail", "Lead já existe no cadastro de Leads.");
+		}else {
+			
+			service.salvar(lead);
+		
+			attr.addFlashAttribute("success", "Lead inserido com sucesso.");
+		}
 		return "redirect:/lead/cadastrar";
 	}
 //
@@ -77,7 +75,8 @@ public class LeadController {
 	@PostMapping("/editar")
 	public String editar(TbLead lead, RedirectAttributes attr) {
 		service.editar(lead);
-		attr.addFlashAttribute("success", "Lead editado com sucesso.");
+		
+		attr.addFlashAttribute("success", "Lead editado com sucesso." );
 		return "redirect:/lead/listar"; 
 	}
 	

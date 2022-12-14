@@ -19,11 +19,11 @@
  					<div class="row">
 						<div class="col-sm">
 						<label for="nome" class="form-label">*Nome Comprador</label>
-						 <input	 type="text" class="form-control"  placeholder="Nome" autofocus="autofocus" id="nmLead" th:field="*{nmLead}"/>
+						 <input	 type="text" class="form-control"  placeholder="Nome" required autofocus id="nmLead" th:field="*{nmLead}"/>
 					</div>
 						<div class="col-sm">
 						<label class="form-label" for="vfgts">*Contato</label>
-						<input class="form-control" type="text" placeholder="(99)99999-9999" id="celLead" max="11" th:field="*{celLead}"/>
+						<input class="form-control" type="text" placeholder="(99)99999-9999" required autofocus id="celLead" maxlength="11" size="11" th:field="*{celLead}"/>
 					</div>
 					<div class="col-sm">
 						<label class="form-label" for="vfgts">Data Nascimento</label> 
@@ -84,7 +84,7 @@
 						
 						
 							<datalist id="origem-renda">
-								<option value="AutÃ´nomo">
+								<option value="Autônomo">
 								<option value="Carteira Assinada">
 								<option value="Servidor PÃºblico">
 								<option value="Profissional Liberal">
@@ -92,17 +92,17 @@
 						</div>
 						<div class="col-sm">
 							<label class="form-label" for="vrenda">Renda Bruta</label>
-							 <input	class="form-control" type="number" name="vrenda" id="vrenda" value="0"	data-mask="#,##0,.00" data-mask-reverse="true" th:field="*{rendaAtual}">
+							 <input	class="form-control" type="text" name="vrenda" id="vrenda" 	data-mask="#,##0,.00" data-mask-reverse="true" th:field="*{rendaAtual}">
 						</div>
 												
 						<div class="col-sm">
 							<label class="form-label" for="vfgts">Saldo FGTS Atual</label>
-							 <input	class="form-control" type="number" name="vfgts" id="vfgts" data-mask="#,##0,.00" data-mask-reverse="true"  th:field="*{fgts}">
+							 <input	class="form-control" type="text" name="vfgts" id="vfgts"  data-mask="#,##0,.00" data-mask-reverse="true"  th:field="*{fgts}">
 						</div>
 						
 						<div class="col-sm">
 							<label class="form-label" for="vsinal">Sinal/Ato</label>
-							 <input	class="form-control" type="number" name="vsinal" id="vsinal" data-mask="#,##0,.00" data-mask-reverse="true"  th:field="*{sinal}">
+							 <input	class="form-control" type="text" name="vsinal" id="vsinal" data-mask="#,##0,.00" data-mask-reverse="true"  th:field="*{sinal}">
 						</div>
 					</div>
 					<hr class="linha5">
@@ -110,11 +110,11 @@
 					<div class="row">
 						<div class="col-sm">
 							<input type="checkbox" class="form-check-input" name="chirpf" id="chirpf" th:checked="*{impRenda}">
-							<label  class="checkbox-inline" for="chirpf">DeclaraÃ§Ã£o de Imposto de Renda em dia!</label>
+							<label  class="checkbox-inline" for="chirpf">Declaração de Imposto de Renda em dia!</label>
 						</div>
 						<div class="col-sm">
 						 	<input type="checkbox" class="form-check-input	" name="chpgf" id="chpgf" th:checked="*{finAberto}">
-						 	 <label	class="checkbox-inline" for="chpgf">EstÃ¡ pagando
+						 	 <label	class="checkbox-inline" for="chpgf">Está pagando
 							financiamento Veículo, Emprestimo, Imóveis...!</label>
 						</div>
 					</div>
@@ -122,7 +122,7 @@
 					<div class=" form-group row">
 						<div class="col-sm">
 		
-							<label class="form-label" for="op-tipo">Tipo de ImÃ³vel</label>
+							<label class="form-label" for="op-tipo">Tipo de Imóvel</label>
 							<select id="tipo-imovel" class="form-control" th:field="*{tpImovel}" >
 								<option value="">Selecione...</option>
 								<option value="Casa">Casa</option>
