@@ -22,9 +22,9 @@
 						 <input	 type="text" class="form-control"  placeholder="Nome" required autofocus id="nmLead" th:field="*{nmLead}"/>
 					</div>
 						<div class="col-sm">
-						<output class="form-label" for="vfgts">Contato</output>>
+						<label class="form-label" for="vfgts">*Contato</label>
 						
-						<label  class="form-control" type="text"   id="celLead"  th:text="*{celLead}"></label>
+						<input class="form-control" type="text" placeholder="(99)99999-9999" required autofocus id="celLead" maxlength="11" size="11" th:field="*{celLead}"/>
 					</div>
 					<div class="col-sm">
 						<label class="form-label" for="vfgts">Data Nascimento</label> 

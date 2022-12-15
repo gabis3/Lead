@@ -35,6 +35,15 @@ public class LeadController {
 	        return modelAndView;
 	    }
 	 
+	 @GetMapping({"/cadastrarEditado"})
+	    public ModelAndView cadastroEditado() {
+	        ModelAndView modelAndView = new ModelAndView("lead/cadastroLeadEditado");
+	        modelAndView.addObject("lead", new TbLead());
+
+	        return modelAndView;
+	    }
+	 
+	 
 	@GetMapping("/listar")
 	public String listarLead(ModelMap model, @RequestParam("page") Optional<Integer> page,  @RequestParam("dir") Optional<String> dir) {
 		
@@ -61,6 +70,16 @@ public class LeadController {
 		}
 		return "redirect:/lead/cadastrar";
 	}
+	
+	@PostMapping("/atualizar")
+	public String atualizar(TbLead lead, RedirectAttributes attr) {
+		
+			service.salvar(lead);
+		
+			attr.addFlashAttribute("success", "Lead inserido com sucesso.");
+	
+		return "redirect:/lead/cadastrarEditado";
+	}
 //
 // Edita o cadastro com id selecionado 
 //
@@ -69,6 +88,12 @@ public class LeadController {
 		model.addAttribute("lead", service.buscarPorID(id));
 		return "/lead/cadastro";
 	}
+	
+	@GetMapping("/{id}/editarCadastro")
+	public String preEditarCadastro(@PathVariable("id") Long id, ModelMap model) {
+		model.addAttribute("lead", service.buscarPorID(id));
+		return "/lead/cadastroLeadEditado";
+	}
 //
 // Editar = update - ok 
 //	
@@ -76,7 +101,7 @@ public class LeadController {
 	public String editar(TbLead lead, RedirectAttributes attr) {
 		service.editar(lead);
 		
-		attr.addFlashAttribute("success", "Lead editado com sucesso." );
+		attr.addFlashAttribute("success", "Lead atualizado com sucesso." );
 		return "redirect:/lead/listar"; 
 	}
 	
