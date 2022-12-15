@@ -51,11 +51,11 @@
 					</div>
 				
 					<div class="collapse" id="collapseExample2" data-parent="#myGroup" >
-						<div class="collapse.show" id="collapseNome" aria-labelledby="headingOne" data-parent="#selector">
+						<div class="collapse.show" id="collapseContato" aria-labelledby="headingOne" data-parent="#selector">
 							<div class="navbar navbar-light bg-light col-4">
 								<form class="form-inline row" method="GET" th:action="@{/lead/buscar/contato}">
 									<div class="col-auto">
-										<input class="form-control mr-sm-" type="search" placeholder="Contato" aria-label="Search" th:name="nome" />
+										<input class="form-control mr-sm-" type="search" placeholder="Contato" aria-label="Search" th:name="contato" />
 									</div>
 									<div class="col">
 										<button class="btn btn-outline-success my-2 my-sm-0">Pesquisar</button>
@@ -70,7 +70,7 @@
 							<div class="navbar navbar-light bg-light col-4">
 								<form class="form-inline row" method="GET" th:action="@{/lead/buscar/status}">
 									<div class="col-auto">
-										<input class="form-control mr-sm-" type="search" placeholder="Situação" aria-label="Search" th:name="nome" />
+										<input class="form-control mr-sm-" type="search" placeholder="Situação" aria-label="Search" th:name="situacao" />
 									</div>
 									<div class="col">
 										<button class="btn btn-outline-success my-2 my-sm-0">Pesquisar</button>
